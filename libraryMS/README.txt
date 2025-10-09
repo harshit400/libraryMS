@@ -1,4 +1,4 @@
-run this  commmands in mySQL command line
+                                run this  commmands in mySQL command line
 
 create database library;
 
@@ -13,3 +13,14 @@ insert into admin values("admin","admin");
 create table book(book_img char(100),book_title char(100),author char(20));
 
 create table register(roll_no bigint primary key,name char(20),phone_no bigint,email char(100),password char(100));
+
+
+
+
+
+
+
+
+
+
+               
