@@ -18,7 +18,11 @@ create table register(roll_no bigint primary key,name char(20),phone_no bigint,e
 
 
 
+                                     python installetion
 
+
+pip install flask
+pip install mysql-connector-python
 
 
 
