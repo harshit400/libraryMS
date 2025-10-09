@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            position: relative;
+            min-height: 100vh;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column; /* Arrange header, main, and footer vertically */
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 10px; /* Reduced margin for smaller screens */
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1em; /* Reduced font size for smaller screens */
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .search {
+            flex-grow: 1;
+            text-align: center;
+            margin: 10px 0; /* Adjust margin for better spacing on smaller screens */
+        }
+
+        .search input {
+            color: black;
+            border-radius: 20px;
+            border: 1px solid black;
+            height: 3vh; /* Further adjusted height */
+            width: 80%; /* Increased width on smaller screens */
+            text-align: center;
+            font-size: 1.5vh; /* Further adjusted font size */
+            padding: 5px 10px;
+            box-sizing: border-box;
+            margin: 0 auto; /* Center the search input */
+        }
+
+        main {
+            text-align: center;
+            padding: 20px;
+            flex-grow: 1; /* Allow main to take up remaining vertical space */
+        }
+
+        .book-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+            margin-bottom: 30px;
+        }
+
+        .book-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            animation: fadeInUp 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        .book-card:nth-child(odd) {
+            animation-delay: 0.1s;
+        }
+
+        .book-card:nth-child(even) {
+            animation-delay: 0.2s;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .book-cover {
+            width: 100px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .book-card:hover .book-cover {
+            transform: scale(1.05);
+        }
+
+        .book-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .book-author {
+            color: #777;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        main h1 {
+            color: red; /* Keep the "sorry!" heading style */
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            position: relative; /* For potential absolute positioning of elements within */
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            margin-bottom: 20px;
+            text-align: left;
+            min-width: 200px;
+        }
+
+        .footer-section h3 {
+            color: #eee;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .footer-section ul li a:hover {
+            color: #007bff;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 10px;
+            color: #ccc;
+            font-size: 1.5em;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .social-links a:hover {
+            color: #007bff;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-section {
+                text-align: center;
+                min-width: auto;
+            }
+
+            .social-links {
+                margin-top: 10px;
+            }
+
+            .social-links a {
+                margin: 0 10px;
+            }
+        }
+
+        /* Responsive adjustments for larger screens */
+        @media (min-width: 768px) {
+            .nav-links li {
+                margin: 0 15px;
+            }
+            .nav-links a {
+                font-size: 1.1em;
+            }
+            .search {
+                margin: 0 10px;
+            }
+            .search input {
+                height: 4vh;
+                font-size: 2vh;
+                width: 70%;
+            }
+            main div {
+                gap: 15px;
+            }
+            main img {
+                width: 150px;
+            }
+            footer button {
+                font-size: 1em;
+                padding: 8px 15px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="navbar">
+        <ul class="nav-links">
+            <li><a href="/index">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+        <form action="/index" class="search" method="post">
+            <input type="search" name="search" placeholder="search">
+        </form>
+    </div>
+</header>
+
+<main>
+    {% if 0 not in books_data %}
+    <div class="book-list">
+        {% for book_list in range(books_data|length) %}
+        <div class="book-card">
+            <img src="{{books_data[book_list][0]}}" alt="Book Cover {{book_list+1}}" class="book-cover">
+            <h3 class="book-title">{{books_data[book_list][1]}}</h3>
+            <p class="book-author">{{books_data[book_list][2]}}</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if 0 in books_data %}
+    <h1> sorry !</h1>
+    {% endif %}
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Explore</h3>
+            <ul>
+                <li><a href="/index">Home</a></li>
+                <li><a href="/search">Search Books</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>My Account</h3>
+            <ul>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/bookshelf">My Bookshelf</a></li>
+                <li><a href="/history">Reading History</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Connect</h3>
+            <p>Follow us on social media:</p>
+            <div class="social-links">
+                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-square"></i></a>
+                <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter-square"></i></a>
+                <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>[Your E-Library Address]</p>
+            <p>Email: [Your E-Library Email]</p>
+            <p>Phone: [Your E-Library Phone]</p>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2025 Agra E-Library. All rights reserved. | Designed by [Your Name/Organization]
+    </div>
+</footer>
+
+<script src="https://kit.fontawesome.com/your_fontawesome_kit_id.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>admin_login</title>
+    <style>
+
+        @keyframes animation {
+            0%{
+                opacity:0;
+            }100%{
+                opacity:1;
+            }
+        }
+        main {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0a060673;
+            min-height: 100vh;
+            overflow: hidden; /* Prevent scrollbars */
+        }
+        .container {
+            text-align: center;
+            color:white;
+            padding: 40px;
+            background-color: #0a060673;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px white;
+            backdrop-filter: blur(10px); /* Glassmorphism effect */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation:5s animation;
+        }
+        .input {
+            padding: 15px 30px;
+            margin:5px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+<main>
+    <div class="container">
+        <h1>student login</h1>
+        <div>
+            <form action="/login"  method="post">
+                <input type="number" name="username" class="input" placeholder="student Roll No.">
+                <br>
+                <input type="text" name="password" class="input" placeholder="password">
+                <br>
+                <button class="input">submit</button>
+            </form>
+        </div>
+    </div>
+</main>
+</body>
+</html>

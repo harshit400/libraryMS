@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+        body {
+            font-family: "Raleway", sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px; /* Add some padding to the body for better spacing on small screens */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box; /* Ensure padding is included in height */
+        }
+
+        form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 90%; /* Increase width on smaller screens */
+            max-width: 500px;
+        }
+
+        div {
+            margin-bottom: 20px;
+            overflow: hidden; /* To contain the animation */
+        }
+
+        input[type="number"],
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="password"] {
+            border-radius: 20px;
+            border: 2px solid black;
+            text-align: center;
+            height: 4.5vh; /* Adjust height slightly */
+            width: 100%; /* Make input fields take full width of their container */
+            font-size: 2vh;
+            padding: 10px;
+            box-sizing: border-box; /* To include padding and border in the element's total width and height */
+        }
+
+        input::placeholder {
+            color: #aaa;
+        }
+
+        @keyframes left_to_right {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(0%);
+            }
+        }
+
+        @keyframes right_to_left {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0%);
+            }
+        }
+
+        .right_l input {
+            animation: left_to_right 0.7s ease-in-out forwards; /* Slightly faster animation */
+        }
+
+        .left_r input {
+            animation: right_to_left 0.7s ease-in-out forwards; /* Slightly faster animation */
+        }
+
+        input[type="submit"] {
+            border-radius: 20px;
+            border: 2px solid black;
+            text-align: center;
+            background-color: #00807a;
+            color: white;
+            margin-top: 25px;
+            padding: 12px 20px;
+            font-size: 2vh;
+            cursor: pointer;
+            width: 60%; /* Adjust submit button width */
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            animation: none; /* Disable animation on submit button */
+            transform: translateX(0%); /* Ensure submit button is not initially translated */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #006661;
+        }
+
+        a {
+            display: block; /* Make the link take full width */
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 1.8vh; /* Adjust font size */
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments for larger screens */
+        @media (min-width: 768px) {
+            form {
+                width: 80%;
+                max-width: 500px;
+            }
+
+            input[type="number"],
+            input[type="text"],
+            input[type="tel"],
+            input[type="email"],
+            input[type="password"] {
+                height: 4.3vh;
+                font-size: 2vh;
+            }
+
+            input[type="submit"] {
+                width: 50%;
+                font-size: 2vh;
+            }
+
+            a {
+                font-size: 2vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form name="registration" method="post">
+            <div>
+                <div class="right_l">
+                    <input type="number" name="roll_no" placeholder="Roll No" required>
+                </div>
+            </div>
+            <div>
+                <div class="left_r">
+                    <input type="text" name="name" placeholder="Name" required>
+                </div>
+            </div>
+            <div>
+                <div class="right_l">
+                    <input type="tel" name="phone_no" placeholder="Phone No" required>
+                </div>
+            </div>
+            <div>
+                <div class="left_r">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+            </div>
+            <div>
+                <div class="right_l">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+            </div>
+            <div>
+                <input type="submit" name="submit" value="Submit" id="submit">
+            </div>
+        </form>
+        <a href="/login">Already have an account? Log in</a>
+    </div>
+</body>
+</html>

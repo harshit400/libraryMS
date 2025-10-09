@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Issued Books</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .edit-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .edit-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            tr { border: 1px solid #ccc; }
+
+            td {
+                border: none;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                padding-left: 50%;
+                text-align: left;
+            }
+
+            td:before {
+                position: absolute;
+                top: 6px;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                content: attr(data-label);
+                font-weight: bold;
+            }
+        }
+        .center{
+        text-align:center;
+        }
+
+         .add_main {
+            font-family: 'Arial', sans-serif;
+            margin: 10px;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            min-height: 10vh;
+            overflow: hidden; /* Prevent scrollbars */
+        }
+        .add_container {
+            text-align: center;
+            color:white;
+            padding: 40px;
+            background-color: #0a060673;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px white;
+            backdrop-filter: blur(10px); /* Glassmorphism effect */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation:5s animation;
+        }
+        input {
+            padding: 15px 30px;
+            margin:5px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            width:80%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="">
+    <details class="add_main" placeholder="add">
+        <summary>Add data</summary>
+        <div class="add_container">
+            <form action="/admin_IssueAndReturn_books" name="data" method="post" onload="form1.reset();">
+                <input type="text" name="title" placeholder="book title" required>
+                <br>
+                <input type="text" name="roll_no" placeholder="roll_no" required>
+                <br>
+                <input type="date" name="issue_date" placeholder="issue_date" required>
+                <br>
+                <input type="date" name="due_date" placeholder="due_date" required>
+                <br>
+                <input type="submit" name="submit" value="submit" required>
+            </form>
+        </div>
+    </details>
+    </div>
+    <div class="container">
+        <h2>Issued Books</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Book Title</th>
+                    <th>Borrower Roll No.</th>
+                    <th>Issue Date</th>
+                    <th>Due Date</th>
+                </tr>
+            </thead>
+            {% for post in range(data|length) %}
+            <tbody >
+                <tr>
+                    <td data-label="Book Title">{{data[post][0]}}</td>
+                    <td data-label="Borrower Roll No.">{{data[post][1]}}</td>
+                    <td data-label="Issue Date">{{data[post][2]}}</td>
+                    <td data-label="Due Date">{{data[post][3]}}</td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

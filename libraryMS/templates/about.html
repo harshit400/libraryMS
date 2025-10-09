@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Our Library Management System</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-out;
+        }
+
+        h1, h2 {
+            color: #007bff;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .features {
+            margin-top: 30px;
+        }
+
+        .features h2 {
+            color: #28a745;
+            text-align: left;
+            border-bottom: 2px solid #28a745;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-list li {
+            background-color: #e9ecef;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .feature-list li::before {
+            content: '✔';
+            position: absolute;
+            left: 10px;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .team {
+            margin-top: 40px;
+        }
+
+        .team h2 {
+            color: #ffc107;
+            text-align: left;
+            border-bottom: 2px solid #ffc107;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .team-members {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .team-member {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-member img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .team-member h3 {
+            color: #555;
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        .team-member p {
+            color: #777;
+            font-size: 0.9em;
+            margin-bottom: 0;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>About Our Library Management System</h1>
+
+        <p>Welcome to the "Agra Library Management System"! Our mission is to provide an efficient, user-friendly, and robust platform for managing all aspects of your library. Whether you are a librarian looking to streamline operations or a patron eager to discover new books, our system is designed to enhance your library experience.</p>
+
+        <p>Developed with the needs of the modern library in mind, our system aims to simplify tasks such as cataloging books, managing member accounts, tracking borrowing and return processes, and generating insightful reports. We believe that a well-managed library is a cornerstone of education and community enrichment, and we are committed to providing the tools necessary to achieve that.</p>
+
+        <div class="features">
+            <h2>Key Features</h2>
+            <ul class="feature-list">
+                <li>Efficient Book Cataloging: Easily add, update, and manage your library's collection with detailed information.</li>
+                <li>Member Management: Keep track of library members, their registration details, and borrowing history.</li>
+                <li>Borrowing and Return System: Streamline the process of issuing and returning books with automated tracking.</li>
+                <li>Search Functionality: Allow patrons to quickly search for books by title, author, ISBN, and keywords.</li>
+                <li>Reporting and Analytics: Generate reports on popular books, overdue items, and library usage.</li>
+                <li>User-Friendly Interface: An intuitive design that is easy for both librarians and patrons to navigate.</li>
+                <li>Secure Data Management: Ensuring the privacy and integrity of your library's data.</li>
+                <li>Accessibility: Designed to be accessible across various devices.</li>
+            </ul>
+        </div>
+
+        <div class="team">
+            <h2>Our Team</h2>
+            <p>The "Agra Library Management System" was brought to life by a dedicated team of developers, designers, and library science enthusiasts who are passionate about creating innovative solutions for libraries.</p>
+            <div class="team-members">
+                <div class="team-member">
+                    <img src="placeholder_profile.png" alt="Developer 1">
+                    <h3>John Doe</h3>
+                    <p>Lead Developer</p>
+                </div>
+                <div class="team-member">
+                    <img src="placeholder_profile.png" alt="Designer 1">
+                    <h3>Jane Smith</h3>
+                    <p>UI/UX Designer</p>
+                </div>
+                <div class="team-member">
+                    <img src="placeholder_profile.png" alt="Analyst 1">
+                    <h3>Peter Jones</h3>
+                    <p>System Analyst</p>
+                </div>
+                </div>
+            <p>We are constantly working to improve and expand the features of our system to better serve the library community in Agra and beyond. Your feedback is valuable to us!</p>
+        </div>
+
+        <p>Thank you for choosing the "Agra Library Management System". We hope it helps you manage your library effectively and enhances the experience for all your patrons.</p>
+    </div>
+</body>
+</html>
